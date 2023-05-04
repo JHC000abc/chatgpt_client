@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>641</width>
+    <height>411</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ChatGpt搜索</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../qrc/chat.qrc">
+    <normaloff>:/img/pikaqiu.ico</normaloff>:/img/pikaqiu.ico</iconset>
+  </property>
+  <widget class="QPushButton" name="pushButton_search">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>40</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>搜 索</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit_input">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>501</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+   </property>
+   <property name="placeholderText">
+    <string>输入指令</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit_out">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>601</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>输出</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../qrc/chat.qrc"/>
+ </resources>
+ <connections/>
+</ui>
