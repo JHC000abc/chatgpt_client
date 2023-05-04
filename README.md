@@ -1,0 +1,2 @@
+# chatgpt_client
+chatgpt客户端，使用的是网站上爬取的数据接口，仿照chatgpt输出方式实现的客户端，支持自行配置输出参数
