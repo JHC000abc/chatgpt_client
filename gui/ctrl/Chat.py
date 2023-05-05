@@ -19,8 +19,6 @@ class Chat(QtWidgets.QWidget):
     single_show_result = QtCore.pyqtSignal(str, int)
     single_clear_result = QtCore.pyqtSignal()
     single_status_search = QtCore.pyqtSignal(int)
-    single_sleep = QtCore.pyqtSignal(int)
-
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.ui = Ui_Form()
@@ -52,11 +50,10 @@ class Chat(QtWidgets.QWidget):
         self.single_show_result.connect(self.show_result)
         self.single_clear_result.connect(self.clear_result)
         self.single_status_search.connect(self.check_status_search)
-        self.single_sleep.connect(self.single_sleep_times)
 
-    def get_result(self, input):
+    def get_result(self, input,conf):
         self.single_status_search.emit(1)
-        result = net.get_result(input)
+        result = net.get_result(input,conf)
         if result:
             self.single_clear_result.emit()
             msg_head = self.input + " [搜索结果] :"
@@ -66,9 +63,6 @@ class Chat(QtWidgets.QWidget):
                 time.sleep(SLEEP["OUT_STEP"])
 
         self.single_status_search.emit(0)
-
-    def single_sleep_times(self, em):
-        time.sleep(em)
 
     def check_status_search(self, em):
         if em == 1:
@@ -87,6 +81,27 @@ class Chat(QtWidgets.QWidget):
             self.ui.textEdit_out.setText(result)
             self.ui.textEdit_out.append("\n")
 
+    def get_conf(self):
+        conf = {}
+        if self.ui.checkBox_net.isChecked():
+            conf["NETWORK"] = True
+        else:
+            conf["NETWORK"] = False
+
+        if self.ui.checkBox_without_context.isChecked():
+            conf["WITHOUTCONTEXT"] = True
+        else:
+            conf["WITHOUTCONTEXT"] = False
+
+        if self.ui.checkBox_stream.isChecked():
+            conf["STREAM"] = True
+        else:
+            conf["STREAM"] = False
+
+        return conf
+
+
+
     def slot_search(self):
         """
 
@@ -96,7 +111,8 @@ class Chat(QtWidgets.QWidget):
         self.input = input.strip()
         if input != "":
             self.ui.textEdit_out.setText("正在全力搜索中……")
-            self.t = Thread(target=self.get_result, args=(input,))
+            conf = self.get_conf()
+            self.t = Thread(target=self.get_result, args=(input,conf,))
             self.t.setDaemon(True)
             self.t.start()
             self.ui.textEdit_input.clear()

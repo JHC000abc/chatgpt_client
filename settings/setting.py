@@ -22,9 +22,9 @@ STYLE = {
 }
 NET = {
     # 连接网络获取数据(开启后变慢)
-    "NETWORK":False,
+    "NETWORK":True,
     # 上下文支持
-    "WITHOUTCONTEXT":True,
+    "WITHOUTCONTEXT":False,
     # 流式输出
-    "STREAM":False,
+    "STREAM":True,
 }

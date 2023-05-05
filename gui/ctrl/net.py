@@ -10,7 +10,7 @@ import json
 from settings.setting import *
 
 
-def get_result(args):
+def get_result(args,conf=NET):
     headers = {
         "authority": "api.binjie.fun",
         "accept": "application/json, text/plain, */*",
@@ -34,10 +34,10 @@ def get_result(args):
     data = {
         "prompt": "{}".format(args),
         "userId": "#/chat/1683173371474",
-        "network": NET["NETWORK"],
+        "network": conf["NETWORK"],
         "system": "",
-        "withoutContext": NET["WITHOUTCONTEXT"],
-        "stream": NET["STREAM"]
+        "withoutContext": conf["WITHOUTCONTEXT"],
+        "stream": conf["STREAM"]
     }
     data = json.dumps(data, separators=(',', ':'))
     response = requests.post(url, headers=headers, data=data)

@@ -21,7 +21,7 @@
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>40</y>
+     <y>60</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -34,7 +34,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>40</y>
+     <y>60</y>
      <width>501</width>
      <height>51</height>
     </rect>
@@ -53,13 +53,52 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>110</y>
+     <y>130</y>
      <width>601</width>
      <height>261</height>
     </rect>
    </property>
    <property name="placeholderText">
     <string>输出</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_without_context">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>上下文支持</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_net">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>20</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>联网</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_stream">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>20</y>
+     <width>141</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>流式输出</string>
    </property>
   </widget>
  </widget>
